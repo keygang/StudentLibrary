@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
+             xmlns:localization="clr-namespace:StudentLibrary.Localization"
+             x:Class="StudentLibrary.Views.AddStudent"
+             Title="{x:Static localization:Language.AddStudent}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+
+                <Image x:Name="image" Source="{Binding Student.Photo}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="2" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <!--<Label Text="First Name" />-->
+                <xfx:XfxEntry Placeholder="{x:Static localization:Language.FirstName}" Text="{Binding Student.FirstName}" 
+                              TextColor="{StaticResource textColor}" PlaceholderColor="{StaticResource textColor}" ActivePlaceholderColor="{StaticResource textColor}" />
+
+                <!--<Label Text="Last Name" />-->
+                <xfx:XfxEntry Placeholder="{x:Static localization:Language.LastName}" Text="{Binding Student.LastName}" TextColor="{StaticResource textColor}" 
+                              PlaceholderColor="{StaticResource textColor}" ActivePlaceholderColor="{StaticResource textColor}"/>
+
+                <!--<Label Text="Group" />-->
+                <xfx:XfxEntry x:Name="group" Placeholder="{x:Static localization:Language.Group}" Text="{Binding Student.Group}" TextColor="{StaticResource textColor}" 
+                              PlaceholderColor="{StaticResource textColor}" ActivePlaceholderColor="{StaticResource textColor}"/>
+           
+                <!--<Label Text="Year of entering" />-->
+                <xfx:XfxEntry x:Name="dateOfEntring" Placeholder="{x:Static localization:Language.YearOfEntering}" Text="{Binding Student.DateOfEntering}" TextColor="{StaticResource textColor}" 
+                              PlaceholderColor="{StaticResource textColor}" ActivePlaceholderColor="{StaticResource textColor}"/>
+
+
+                <Button Text="{x:Static localization:Language.Save}" Clicked="OnCreateClicked" Margin="0, 10" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

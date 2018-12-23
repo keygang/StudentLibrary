@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudentLibrary"
+             x:Class="StudentLibrary.Views.StudentList"        
+             NavigationPage.HasBackButton="False"
+             xmlns:localization="clr-namespace:StudentLibrary.Localization"
+             Title="{x:Static localization:Language.Student}"
+             >
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sort" Clicked="Sort_Clicked" Icon="@Resources/sort.png" />
+        <ToolbarItem Text="Search" Clicked="Search_Clicked" Icon="@Resources/search.png" />
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" Icon="@Resources/add.png" />
+        <ToolbarItem Text="Settings" Clicked="Settings_Clicked" Icon="@Resources/settings.png" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical" >
+        <StackLayout Padding="10, 5" BackgroundColor="{StaticResource oppositeBackgroundColor}">
+            <Label x:Name="SortLabel" TextColor="{StaticResource textColor}" ></Label>
+
+            <SearchBar x:Name="StudentSearch" TextChanged="SearchBar_TextChanged" 
+                       IsVisible="False" TextColor="{StaticResource textColor}" 
+                       VerticalOptions="CenterAndExpand" 
+                       BackgroundColor="{StaticResource backgroundColor}" 
+                       PlaceholderColor="{StaticResource textColor}" Placeholder="{x:Static localization:Language.Searchholder}"></SearchBar>
+        </StackLayout>
+
+        <ListView x:Name="StudentsListView" 
+                  ItemsSource="{Binding Students}" 
+                  VerticalOptions="FillAndExpand" 
+                  HasUnevenRows="true" 
+                  RefreshCommand="{Binding LoadStudentsCommand}" 
+                  IsPullToRefreshEnabled="true" 
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay }"
+                  CachingStrategy="RecycleElement"
+                  ItemSelected="OnItemSelected">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10,5,10,5">
+                            <Label Text="{Binding LastName}" FontSize="Large"
+                   Style="{DynamicResource ListItemTextStyle}" TextColor="{StaticResource textColor}" />
+                            <Label Text="{Binding FirstName}" FontSize="Small" 
+                   Style="{DynamicResource ListItemDetailTextStyle}" TextColor="{StaticResource textColor}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </StackLayout>
+</ContentPage>

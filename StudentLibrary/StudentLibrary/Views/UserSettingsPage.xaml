@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudentLibrary"
+             xmlns:localization="clr-namespace:StudentLibrary.Localization"
+             x:Class="StudentLibrary.Views.UserSettingsPage"
+             Title="{x:Static localization:Language.Settings}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{x:Static localization:Language.Lang}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
+                <Picker x:Name="LangPicker"  SelectedItem="{Binding Language, Mode=TwoWay}" TextColor="{StaticResource textColor}"/>
+                <Label Text="{x:Static localization:Language.Theme}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
+                <Picker x:Name="ThemePicker" SelectedItem="{Binding Theme, Mode=TwoWay}" TextColor="{StaticResource textColor}"/>
+                <Label Text="{x:Static localization:Language.Developer}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
+                <Label Text="{x:Static localization:Language.StasBokun}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

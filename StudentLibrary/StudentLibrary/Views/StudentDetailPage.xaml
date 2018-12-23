@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentLibrary.Views.StudentDetailPage"
+             xmlns:localization="clr-namespace:StudentLibrary.Localization"
+             Title="{x:Static localization:Language.StudentDetails}">
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Image x:Name="image" Source="{Binding Student.Photo}"></Image>
+
+                <Label Text="{x:Static localization:Language.FirstName}" FontSize="Medium" TextColor="{StaticResource textColor}" />
+                <Label Text="{Binding Student.FirstName}" FontSize="Small" TextColor="{StaticResource textColor}"/>
+                <Label Text="{x:Static localization:Language.LastName}" FontSize="Medium" TextColor="{StaticResource textColor}" />
+                <Label Text="{Binding Student.LastName}" FontSize="Small" TextColor="{StaticResource textColor}"/>
+                <Label Text="{x:Static localization:Language.Group}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
+                <Label Text="{Binding Student.Group}" FontSize="Small" TextColor="{StaticResource textColor}"/>
+                <Label Text="{x:Static localization:Language.YearOfEntering}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
+                <Label Text="{Binding Student.DateOfEntering}" FontSize="Small" TextColor="{StaticResource textColor}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static localization:Language.Edit}" Clicked="EditItem_Clicked" />
+        <ToolbarItem Text="{x:Static localization:Language.Delete}" Clicked="DeleteItem_Clicked" />
+    </ContentPage.ToolbarItems>
+</ContentPage>
