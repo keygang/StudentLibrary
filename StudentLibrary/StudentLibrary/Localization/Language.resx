@@ -120,6 +120,9 @@
   <data name="AddStudent" xml:space="preserve">
     <value>Add student</value>
   </data>
+  <data name="AllStudents" xml:space="preserve">
+    <value>All students</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -177,6 +180,9 @@
   <data name="Searchholder" xml:space="preserve">
     <value>Search...</value>
   </data>
+  <data name="SelectGroup" xml:space="preserve">
+    <value>Select group</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="StasBokun" xml:space="preserve">
     <value>Stas Bokun</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistics</value>
   </data>
   <data name="Student" xml:space="preserve">
     <value>Student</value>

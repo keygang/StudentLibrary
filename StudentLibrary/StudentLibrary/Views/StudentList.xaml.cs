@@ -1,6 +1,7 @@
 ﻿using StudentLibrary.Models;
 using StudentLibrary.ViewModels;
 using System;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -36,6 +37,20 @@ namespace StudentLibrary.Views
             await Navigation.PushAsync(new AddStudent());
         }
 
+        async public void Groups_Clicked(object sender, EventArgs e)
+        {
+            SortLabel.Text = $"{Localization.Language.SortedBy}: {action}";
+            this.action = "Group";
+            studentsViewModel.LoadStudentsCommand.Execute(null);
+            var buttons = (from student in studentsViewModel.Students
+                               group student by student.Group into g
+                               select g.Key).ToArray();
+            var choice = await DisplayActionSheet(Localization.Language.SelectGroup, Localization.Language.AllStudents, "", buttons);
+            if (choice == Localization.Language.AllStudents)
+                choice = "";
+            SearchBar_TextChanged(this, new TextChangedEventArgs("", choice));
+        }
+
         public async void Sort_Clicked(object sender, EventArgs e)
         {
             var action = await DisplayActionSheet($"{Localization.Language.SortedBy}: ", Localization.Language.Cancel, null, Localization.Language.LastName, Localization.Language.FirstName, Localization.Language.Group);
@@ -56,15 +71,18 @@ namespace StudentLibrary.Views
 
         async public void Settings_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserSettingsPage());
+            await Navigation.PushAsync(new UserSettingsPage(studentsViewModel.Students.ToArray()));
             UserSettings.Current.Save();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            studentsViewModel.LoadStudentsCommand.Execute(null);
+            if (studentsViewModel.SearchText == null)
+                studentsViewModel.SearchText = "";
+            if (this.action == null)
+                this.action = "Last Name";
+            studentsViewModel.SearchStudentsCommand.Execute(action);
         }
 
         async private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

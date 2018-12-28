@@ -12,6 +12,7 @@
         <ToolbarItem Text="Sort" Clicked="Sort_Clicked" Icon="@Resources/sort.png" />
         <ToolbarItem Text="Search" Clicked="Search_Clicked" Icon="@Resources/search.png" />
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" Icon="@Resources/add.png" />
+        <ToolbarItem Text="Groups" Clicked="Groups_Clicked" Icon="@Resources/groups.png" />
         <ToolbarItem Text="Settings" Clicked="Settings_Clicked" Icon="@Resources/settings.png" />
     </ContentPage.ToolbarItems>
 

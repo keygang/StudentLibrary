@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentLibrary.Views.Statistics"  
+             xmlns:oxyplot="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+             xmlns:localization="clr-namespace:StudentLibrary.Localization"
+             xmlns:local="clr-namespace:StudentLibrary.ViewModels"
+             Title="{x:Static localization:Language.Group}">
+
+    <oxyplot:PlotView Model="{Binding plotModel}"/>
+</ContentPage>

@@ -70,6 +70,15 @@ namespace StudentLibrary.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на All students.
+        /// </summary>
+        public static string AllStudents {
+            get {
+                return ResourceManager.GetString("AllStudents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Cancel.
         /// </summary>
         public static string Cancel {
@@ -241,6 +250,15 @@ namespace StudentLibrary.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Select group.
+        /// </summary>
+        public static string SelectGroup {
+            get {
+                return ResourceManager.GetString("SelectGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Settings.
         /// </summary>
         public static string Settings {
@@ -273,6 +291,15 @@ namespace StudentLibrary.Localization {
         public static string StasBokun {
             get {
                 return ResourceManager.GetString("StasBokun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Statistics.
+        /// </summary>
+        public static string Statistics {
+            get {
+                return ResourceManager.GetString("Statistics", resourceCulture);
             }
         }
         

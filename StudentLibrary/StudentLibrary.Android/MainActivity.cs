@@ -23,6 +23,7 @@ namespace StudentLibrary.Droid
             base.OnCreate(bundle);
             XfxControls.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
             CrossCurrentActivity.Current.Init(this, bundle);
             // This line is leveraging the android-specific implementation
             ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);

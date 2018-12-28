@@ -8,7 +8,7 @@ namespace StudentLibrary.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        bool isBusy = false;
+            bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }
@@ -23,6 +23,10 @@ namespace StudentLibrary.ViewModels
         public void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }       
+        }
+
+        public virtual void OnAppearing()
+        {
+        }
     }
 }

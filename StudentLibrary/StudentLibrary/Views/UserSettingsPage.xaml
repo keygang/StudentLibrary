@@ -12,6 +12,7 @@
                 <Picker x:Name="LangPicker"  SelectedItem="{Binding Language, Mode=TwoWay}" TextColor="{StaticResource textColor}"/>
                 <Label Text="{x:Static localization:Language.Theme}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
                 <Picker x:Name="ThemePicker" SelectedItem="{Binding Theme, Mode=TwoWay}" TextColor="{StaticResource textColor}"/>
+                <Button x:Name="Statistics" Text="{x:Static localization:Language.Statistics}" Clicked="Statistics_Clicked"></Button>
                 <Label Text="{x:Static localization:Language.Developer}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
                 <Label Text="{x:Static localization:Language.StasBokun}" FontSize="Medium" TextColor="{StaticResource textColor}"/>
             </StackLayout>
